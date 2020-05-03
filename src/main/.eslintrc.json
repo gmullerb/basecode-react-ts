@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "plugin:base-style-config/typescript-rules, react-with-hooks-rules"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": ["error"],
+    "react/prefer-es6-class": [
+      "error",
+      "never"
+    ],
+    "import/no-extraneous-dependencies": "error",
+    "no-restricted-imports": ["error", {
+      "patterns": [
+        "**/___tests*",
+        "*.test*"
+      ]
+    }]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../build/out-tsc/test",
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "allowJs": true,
+  },
+  "include": [
+    "../../src/main/**/*.ts",
+    "../../src/main/**/*.tsx",
+    "../../src/typings/*.d.ts"
+  ],
+  "exclude": [
+    "../../src/main/**/*.js*",
+    "**/*.css.d.ts",
+    "../../node_modules"
+  ]
+}

@@ -1,0 +1,83 @@
+# Copyright (c) 2020 Gonzalo Müller Bravo.
+image: node:latest
+
+cache:
+  key: "${CI_COMMIT_SHA}"
+  untracked: true
+  paths:
+    - node_modules/
+
+stages:
+  - inception
+  - assess
+  - test
+  - assemble
+  - e2e
+
+create-cache:
+  stage: inception
+  script:
+    - npm install
+  cache:
+    key: "${CI_COMMIT_SHA}"
+    policy: push
+    untracked: true
+    paths:
+      - node_modules/
+
+assess:
+  stage: assess
+  script:
+    - npm run lint
+  cache:
+    key: "${CI_COMMIT_SHA}"
+    policy: pull
+    untracked: true
+    paths:
+      - node_modules/
+
+test:
+  stage: test
+  script:
+    - npm test
+  cache:
+    key: "${CI_COMMIT_SHA}"
+    policy: pull
+    untracked: true
+    paths:
+      - node_modules/
+  coverage: '/Branches.*?(\d+(?:\.\d+)?)%/'
+  artifacts:
+    reports:
+      junit: build/reports/tests/tests_report.xml
+
+assemble:
+  stage: assemble
+  script:
+    - mkdir -p build
+    - cd build
+    - npm pack ../
+  cache:
+    key: "${CI_COMMIT_SHA}"
+    policy: pull
+    untracked: true
+    paths:
+      - .gradle/
+  artifacts:
+    name: $CI_PROJECT_NAME-$(date +%Y%m%d-%H%M)-$CI_COMMIT_SHORT_SHA
+    paths:
+      - ./build/*.tgz
+
+e2e-prod-tests:
+  stage: e2e
+  script:
+    - xvfb-run --server-args="-screen 0 1600x1200x24" npm run e2e
+  cache:
+    key: "${CI_COMMIT_SHA}"
+    policy: pull
+    untracked: true
+    paths:
+      - node_modules/
+  artifacts:
+    reports:
+      junit: build/reports/e2e/junitresults.xml

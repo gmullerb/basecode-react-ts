@@ -1,0 +1,25 @@
+/* Copyright (c) 2020 Gonzalo Müller Bravo. */
+
+.container {
+  background-color: lightgrey;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.centered {
+  height: 50%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.alert {
+  background-image: url('alert.svg');
+  background-position-x: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50%;
+  width: 100%;
+}

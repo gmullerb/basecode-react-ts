@@ -1,0 +1,15 @@
+// Copyright (c) 2020 Gonzalo Müller Bravo.
+plugins {
+  id 'com.moowork.node' version '1.2.0'
+}
+
+repositories {
+  jcenter()
+}
+
+node {
+  version = NODE_VERSION
+  download = true
+}
+
+defaultTasks 'npmInstall', 'npm_run_check'

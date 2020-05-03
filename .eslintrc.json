@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "plugin:base-style-config/js-rules, import-rules",
+    "plugin:base-style-config/regex[copyright], regex[jsx], regex[quotes.jsx]"
+  ],
+  "env":{
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "plugins": [
+    "base-style-config"
+  ],
+  "root": true,
+  "rules": {
+    "no-console": "error",
+    "no-invalid-this": "error",
+    "quotes":  [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "import/exports-last": "error",
+    "import/group-exports": "error"
+  }
+}

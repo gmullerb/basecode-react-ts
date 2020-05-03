@@ -1,0 +1,17 @@
+/* Copyright (c) 2020 Gonzalo Müller Bravo. */
+
+.result {
+  border: 1px solid #7dc46b;
+}
+
+@media only screen and (orientation: portrait) {
+  .logo {
+    background-size: contain;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  .logo {
+    background-size: 50%;
+  }
+}

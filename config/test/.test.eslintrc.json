@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "../../.eslintrc.json",
+    "plugin:base-style-config/react-with-hooks-rules, unused-imports",
+    "plugin:base-style-config/regex[copyright], regex[jsx], regex[quotes.jsx], regex[test]"
+  ],
+  "env":{
+    "jasmine": true
+  }
+}
