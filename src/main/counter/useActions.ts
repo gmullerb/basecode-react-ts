@@ -17,37 +17,37 @@ interface CounterData {
 export function useActions(counterId: string): DeepReadonly<CounterData> {
   const dispatchToGlobal = useReducerDispatcher<GlobalAction>()
   const [ on, setOn ] = useState(false)
-  const [ state, dispatch ] = useReducer<CounterState, CounterAction, Async>(counterId)
+  const [ state, dispatch ] = useReducer<CounterState, CounterAction, Async<Readonly<CounterState>>>(counterId)
   return {
     on,
     state,
     goUp: useCallback(() => {
       setOn(true)
       dispatch(CounterAction.UP)
-        .then(() => {
+        .then(newState => {
           dispatchToGlobal({ // to be improved with next version of react-reducer-provider
             type: GlobalActions.UPDATE_COUNTER,
             data: {
               id: counterId,
-              data: state
+              data: newState
             }
           })
           setOn(false)
         })
-    }, [ counterId, state, dispatch, dispatchToGlobal, setOn ]),
+    }, [ counterId, dispatch, dispatchToGlobal, setOn ]),
     goDown: useCallback(() => {
       setOn(true)
       dispatch(CounterAction.DOWN)
-        .then(() => {
+        .then(newState => {
           dispatchToGlobal({ // to be improved with next version of react-reducer-provider
             type: GlobalActions.UPDATE_COUNTER,
             data: {
               id: counterId,
-              data: state
+              data: newState
             }
           })
           setOn(false)
         })
-    }, [ counterId, state, dispatch, dispatchToGlobal, setOn ])
+    }, [ counterId, dispatch, dispatchToGlobal, setOn ])
   }
 }

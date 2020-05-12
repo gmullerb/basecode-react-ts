@@ -125,6 +125,10 @@ git remote rm origin
 git remote add origin https://github.com/you/superb-react-ts-project.git
 ```
 
+or
+
+Just remove the `.git` folder and start a git repository from 0, i.e. `git init`.
+
 ### Running it
 
 #### Npm
@@ -454,7 +458,7 @@ Don't forget:
 * **Learn yourself**.
 * **Share your knowledge**.
 * **Learn from the past, dream on the future, live and enjoy the present to the max!**.
-* **Enjoy the quest** (It's where you learn and grow).
+* **Enjoy and Value the Quest** (It's where you learn and grow).
 
 At life:
 

@@ -1,6 +1,6 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
 
-import { CounterState, INITIAL_STATE } from './counter/CounterState'
+import { CounterState, INITIAL_STATE as INITIAL_COUNTER_STATE } from './counter/CounterState'
 
 interface GlobalState {
   token: string | null;
@@ -9,14 +9,14 @@ interface GlobalState {
   error: boolean;
 }
 
-const initialState: GlobalState = {
+const INITIAL_STATE: Readonly<GlobalState> = {
   token: null,
-  counter1: INITIAL_STATE,
-  counter2: INITIAL_STATE,
+  counter1: INITIAL_COUNTER_STATE,
+  counter2: INITIAL_COUNTER_STATE,
   error: false
 }
 
 export {
   GlobalState,
-  initialState
+  INITIAL_STATE
 }
