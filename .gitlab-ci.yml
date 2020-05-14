@@ -1,5 +1,5 @@
 # Copyright (c) 2020 Gonzalo Müller Bravo.
-image: node:latest
+image: registry.gitlab.com/gmullerb/basecode-react-ts/debian-node-chromium-xvfb:9.12-14.2.0-73.0-1.19.2
 
 cache:
   key: "${CI_COMMIT_SHA}"
@@ -71,6 +71,7 @@ assemble:
 e2e-prod-tests:
   stage: e2e
   script:
+    - chmod +x ./config/e2e/chromiumver.sh
     - xvfb-run --server-args="-screen 0 1600x1200x24" npm run e2e
   cache:
     key: "${CI_COMMIT_SHA}"

@@ -34,3 +34,11 @@ body {
 .z-normal {
   z-index: var(--z-normal);
 }
+
+.image-label-padding {
+  padding-left: 0.5rem;
+}
+
+.contained-vertical-image {
+  height: 100%;
+}

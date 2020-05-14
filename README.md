@@ -42,6 +42,7 @@ This project is piece together with the purpose of:
 
 > - Some things may be Opinionated based on best practices and professional experience.  
 > - Some parts of the code may seen messy, careless, funny or dummy but the idea is to provide different scenarios, so this project can be the start for "any" project just removing things and not "adding" ( adding in this context means that the configuration is covered for "any case", no need to add something to configuration, which is usually an "exhausting" part).  
+> - With this base project you don't have the limitation of using the wonderful `const enum` that you will when using e.g. react-scripts or ionic.
 > - [1] If some configuration, some code, anything is not crystal clear, please create an [issue](https://gitlab.com/gmullerb/basecode-react-ts/issues) and I will "improve" documentation (Although the documentation is still a Work In Progress). Also, Some topics in the README files have _References_ so you can dig more into details.
 
 ## Features

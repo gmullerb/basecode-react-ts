@@ -1,6 +1,7 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
 import * as React from 'react'
 
+import { LabeledImage } from '../gadgets/LabeledImage'
 import { Link } from 'react-router-dom'
 import styles from './RestEcho.css'
 import { useEcho } from './useEcho'
@@ -41,7 +42,11 @@ export function RestEcho(): React.ReactElement {
           className='button is-primary'
           disabled={disabled}
         >
-          Send
+          <LabeledImage
+            image='imgs/go.svg'
+            label='Send'
+            imageClassName='contained-vertical-image'
+          />
         </button>
         <div className='field'>
           <label className='label'>Result:</label>
