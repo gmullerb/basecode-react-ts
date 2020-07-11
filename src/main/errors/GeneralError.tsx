@@ -5,9 +5,6 @@ import { ErrorDetail } from './ErrorDetail'
 
 export function GeneralError(): React.ReactElement {
   return (
-    <ErrorDetail
-      msj='Oops! Something went wrong'
-      aid='please report at https://adistancia.com'
-    />
+    <ErrorDetail msj='Oops! Something went wrong' aid='please report at https://github.com/gmullerb/basecode-react-ts'/>
   )
 }

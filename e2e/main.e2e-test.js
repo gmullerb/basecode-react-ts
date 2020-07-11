@@ -18,7 +18,7 @@ describe('Main test', () => {
     await browser.wait(ExpectedConditions.presenceOf($('a[href="/rest"]')), 5000)
 
     $('a[href="/rest"]').click()
-    $('input[name="from"]').sendKeys('abc123')
+    $('input[name="@from"]').sendKeys('abc123')
     $('button[data-x="rest-echo-button"]').click()
 
     await browser.sleep(100)

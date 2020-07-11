@@ -1,8 +1,10 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
-const common = require('./webpack.config.common')
-const merge = require('webpack-merge')
 const path = require('path')
+
+const merge = require('webpack-merge')
 const TerserPlugin = require('terser-webpack-plugin')
+
+const common = require('./webpack.config.common')
 
 module.exports = merge(common.config, {
   mode: 'production',
@@ -20,7 +22,7 @@ module.exports = merge(common.config, {
   },
   plugins: [
     common.assets([ {
-      from: './node_modules/bulma/css/bulma.min.css'
+      from: './node_modules/bulma/css/bulma.min.css', to: 'bulma.css'
     } ]),
     common.html({
       templateParameters: {

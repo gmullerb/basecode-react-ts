@@ -1,10 +1,9 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
 import * as React from 'react'
-
+import { mount } from 'enzyme'
 import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 
 import { Home } from '../home/Home'
-import { mount } from 'enzyme'
 import { RoutedContainer } from '../RoutedContainer'
 
 describe('RoutedContainer tests', () => {

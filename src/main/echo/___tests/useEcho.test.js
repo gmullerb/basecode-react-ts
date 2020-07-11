@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
-import * as MockableFetchEcho from '../echoBrain'
 import * as MockableReact from 'react'
 
+import * as MockableFetchEcho from '../echoBrain'
 import { useEcho } from '../useEcho'
 
 describe('useEcho tests', () => {

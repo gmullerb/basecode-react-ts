@@ -130,6 +130,10 @@ or
 
 Just remove the `.git` folder and start a git repository from 0, i.e. `git init`.
 
+3 . Remove footer from [index.ejs](src/main/index.ejs).
+
+4 . Substitute with your name (or company) in every `// Copyright (c) 2020 Gonzalo Müller Bravo.`
+
 ### Running it
 
 #### Npm
@@ -190,20 +194,36 @@ Run any scripts using `./gradlew npm_run_.name.`, where `.name.` is the name of 
 
 > [1] Tests folders are inside `src/main` mainly for Maintainability, 2 reasons: Keep Close (Easy to find the associated Tests) and Easy to Remove (When a component is removed, just remove the "folder"). There are several strategies defined in the project to avoid using or including these folders and Test files in final bundling.
 
-### Files conventions
+### Conventions
 
-- `*.ts`: Typescript main source files.
-- `*.tsx`: Typescript React main source files.
-- `*.test.js`: Javascript Test (Unit and/or Integration) source files [1].
-- `*.test.jsx`: React test source files [1].
-- `*.e2e.js`: React test source files [1].
-- `*.css`: Just the CSS files [2].
+* Typescript for main files [1]:
 
-* Folder's name should use `_`, but not `-`.
-* Files' name should use `-`, but not `_`.
+  - `*.ts`: Typescript main source files.
+  - `*.tsx`: Typescript React main source files.
+
+* Javascript for test files [1]:
+
+  - `*.test.js`: Javascript Test (Unit and/or Integration) source files.
+  - `*.test.jsx`: React test source files.
+  - `*.e2e-test.js`: E2E test source files.
+
+- Folder's name should use `_`, but not `-` or `.`.
+- Files' name should use `-` & `.`, but not `_`. [2]
+
+- class in `variable.css` should be named using hyphen names [3], and
+- in local `*.css` should be named using CamelCase [3][4].
+
+As you can see this project has a "lot" of test, TDD is essential, so try to create Test:
+
+* For new features, you can relax TDD, a little, i.e. start coding your functionality, then do some test for them if time is available.
+* When fixing a bug, you Must be strict, i.e. create some test that "reproduce" the bug, then start coding.
+* Mock only what is need it, i.e. db, complex service, etc. if is a "simple" function, don't spend time mocking that and gain the value of some integration.
 
 > [1] There is no need for using typings in Test files, seems unnecessary and in some cases can be "time" consuming and/or harmful.  
-> I defined a generic type for all css, that is better than using individual `.css.d.ts` files, check [`css-declaration.d.ts`](src/typings/css-declaration.d.ts).
+> [2] Prefer dot.notation than CamelCase for file new, why? this is not Java code, and avoid some OS/git naming "issues".  
+> [3] So it can be easily figure out where the css come from.  
+> [4] I defined a generic Typing for all css, that is better than using individual `.css.d.ts` files, check [`css-declaration.d.ts`](src/typings/css-declaration.d.ts).  
+> why not bootstrap? I was a fan of bootstrap for years, but it is too integrated with its own js libraries, i.e mixing React with jquery, doesn't make any sense. Prefer Only CSS libraries.
 
 ### App Structure
 
@@ -285,10 +305,12 @@ Instead of using `ref` everywhere, use `name`s and extractor:
 
 ```typescript
 const enum SomeFormFieldsName {
-  field1 = 'name1',
-  fieldN = 'nameN',
+  field1 = '@name1',
+  fieldN = '@nameN'
 }
 ```
+
+* **Add a character that is not valid in a JS name to the field name**, this way there is not possible to have any collision with any HTMLFormElement object member, .e.g. can not use `name` since this is a member of HTMLFormElement, then use `@name` as a field name.
 
 2 . Use in form fields:
 
@@ -332,7 +354,9 @@ function processForm(event: React.FormEvent<HTMLFormElement>): HTMLFormElement {
 >
 ```
 
-> Can be used with any type of form field, although in here is only shown with `input`.
+> Can be used with any type of form field, although in here is only shown with `input`.  
+> Remember `ref` allows to access the internal DOM of any control for the form and for the form itself.  
+> This pattern will avoid using an state for every input in the form, i.e. React Controlled components, that seems totally unnecessary, since every HTML control in the form will have its own internal state provided by DOM, so why having 2 states for each control?.
 
 #### Tests
 
@@ -447,8 +471,8 @@ __________________
 ## Remember
 
 * Use code style verification tools => Encourages Best Practices, Efficiency, Readability and Learnability.
-* Start testing early => Encourages Reliability and Maintainability.
 * Code Review everything => Encourages Functional suitability, Performance Efficiency and Teamwork.
+* If viable, Start testing early => Encourages Reliability and Maintainability.
 
 ## Additional words
 
@@ -458,6 +482,7 @@ Don't forget:
 * **Learn everyday**.
 * **Learn yourself**.
 * **Share your knowledge**.
+* **Think different!**.
 * **Learn from the past, dream on the future, live and enjoy the present to the max!**.
 * **Enjoy and Value the Quest** (It's where you learn and grow).
 

@@ -1,10 +1,11 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
 const BundleRestrictPlugin = require('bundle-restrict-webpack-plugin').default
-const { buildEnvironment } = require('../buildEnvironment')
 const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { interpolateName } = require('loader-utils')
 const webpack = require('webpack')
+
+const { buildEnvironment } = require('../buildEnvironment')
 
 const cssRule = {
   test: /\.css$/,
@@ -18,7 +19,7 @@ const cssRule = {
           localIdentName: '[hash:base32:5]',
           getLocalIdent: (loaderContext, localIdentName, localName, options) =>
             localName.substring(0, 3) + interpolateName(loaderContext, localIdentName, {
-              content: localName,
+              content: `${loaderContext.context}${localName}`,
               ...options
             })
         }

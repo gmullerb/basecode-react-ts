@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
 import * as React from 'react'
+import { DeepReadonly } from 'deep-freeze'
 
 import { CounterState } from './CounterState'
-import { DeepReadonly } from 'deep-freeze'
 
 interface Props {
   result: CounterState

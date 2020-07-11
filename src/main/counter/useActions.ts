@@ -1,11 +1,12 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
 import { Async, useReducer, useReducerDispatcher } from 'react-reducer-provider'
-import { GlobalAction, GlobalActions } from '../GlobalAction'
 import { useCallback, useState } from 'react'
+import { DeepReadonly } from 'deep-freeze'
+
+import { GlobalAction, GlobalActions } from '../GlobalAction'
 
 import { CounterAction } from './CounterActions'
 import { CounterState } from './CounterState'
-import { DeepReadonly } from 'deep-freeze'
 
 interface CounterData {
   on: boolean
@@ -15,7 +16,7 @@ interface CounterData {
 }
 
 export function useActions(counterId: string): DeepReadonly<CounterData> {
-  const dispatchToGlobal = useReducerDispatcher<GlobalAction>()
+  const dispatchToGlobal = useReducerDispatcher<DeepReadonly<GlobalAction>>()
   const [ on, setOn ] = useState(false)
   const [ state, dispatch ] = useReducer<CounterState, CounterAction, Async<Readonly<CounterState>>>(counterId)
   return {

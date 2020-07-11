@@ -16,11 +16,7 @@ function LabeledImage({
 }: Readonly<Props>): React.ReactElement {
   return (
     <React.Fragment>
-      <img
-        src={image}
-        alt=''
-        className={imageClassName}
-      />
+      <img src={image} alt='' className={imageClassName}/>
       <span className={`image-label-padding ${labelClassName}`}>{label}</span>
     </React.Fragment>
   )

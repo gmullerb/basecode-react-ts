@@ -10,7 +10,7 @@ interface GlobalErrorCatcherState {
 // Error Boundary/getDerivedStateFromError only works with Class Component
 // eslint-disable-next-line react/prefer-es6-class
 export class GlobalErrorCatcher extends React.Component<ContainerProp, GlobalErrorCatcherState> {
-  public state: GlobalErrorCatcherState = {
+  state: GlobalErrorCatcherState = {
     hasError: false
   }
 

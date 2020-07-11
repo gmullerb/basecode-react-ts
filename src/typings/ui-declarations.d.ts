@@ -21,4 +21,8 @@ declare global {
   interface ButtonsProps extends ClassNameProp, ClickProp {
     disabled?: boolean
   }
+
+  type PropsWithClassName<T> = T & {
+    className?: string
+  }
 }

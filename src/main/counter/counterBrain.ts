@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
 import * as delay from 'delay'
+import { DeepReadonly } from 'deep-freeze'
 
 import { CounterState } from './CounterState'
-import { DeepReadonly } from 'deep-freeze'
 
 async function goUp(prevState: DeepReadonly<CounterState>): Promise<DeepReadonly<CounterState>> {
   return delay(750, {

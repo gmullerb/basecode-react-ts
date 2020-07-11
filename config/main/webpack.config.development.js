@@ -1,7 +1,9 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
-const common = require('./webpack.config.common')
-const merge = require('webpack-merge')
 const path = require('path')
+
+const merge = require('webpack-merge')
+
+const common = require('./webpack.config.common')
 
 module.exports = merge(common.config, {
   mode: 'development',
@@ -11,7 +13,7 @@ module.exports = merge(common.config, {
   plugins: [
     common.assets([
       {
-        from: './node_modules/bulma/css/bulma.css'
+        from: './node_modules/bulma/css/bulma.css', to: 'bulma.css'
       }, {
         from: './node_modules/bulma/css/bulma.css.map'
       }

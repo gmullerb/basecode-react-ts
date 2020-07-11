@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
 import * as React from 'react'
+import { shallow } from 'enzyme'
 
 import { GeneralError } from '../GeneralError'
-import { shallow } from 'enzyme'
 
 describe('GeneralError tests', () => {
   it('should render component', () => {
@@ -11,6 +11,6 @@ describe('GeneralError tests', () => {
     )
 
     expect(error.prop('msj')).toBe('Oops! Something went wrong')
-    expect(error.prop('aid')).toBe('please report at https://adistancia.com')
+    expect(error.prop('aid')).toBe('please report at https://github.com/gmullerb/basecode-react-ts')
   })
 })

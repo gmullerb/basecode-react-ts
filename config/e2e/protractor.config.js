@@ -1,12 +1,14 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
-const { buildEnvironment } = require('../buildEnvironment')
 const fileSystem = require('fs')
-const jasmineReporters = require('jasmine-reporters')
 const path = require('path')
+
+const jasmineReporters = require('jasmine-reporters')
 const { Reporter } = require('jasmine-pretty-html-reporter')
 const { SpecReporter } = require('jasmine-spec-reporter')
-const { startServer } = require('../../server/server')
 const webpack = require('webpack')
+
+const { startServer } = require('../../server/server')
+const { buildEnvironment } = require('../buildEnvironment')
 
 const addJasmineReporters = (e2eReportFolder) => {
   const jasmineEnv = jasmine.getEnv()
@@ -62,6 +64,6 @@ module.exports.config = {
       .then(port => console.info(`API Server started at ${port}`))
   },
   specs: [
-    '../../e2e/**/*.e2e.js'
+    '../../e2e/**/*.e2e-test.js'
   ]
 }

@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
 import * as React from 'react'
+import { shallow } from 'enzyme'
 
 import { GlobalErrorCatcher } from '../GlobalErrorCatcher'
-import { shallow } from 'enzyme'
 
 describe('GlobalErrorCatcher tests', () => {
   it('should set error', () => {

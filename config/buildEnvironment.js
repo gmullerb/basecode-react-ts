@@ -1,7 +1,8 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
 const path = require('path')
-const { apply } = require('json-merge-patch')
 const { inspect } = require('util')
+
+const { apply } = require('json-merge-patch')
 
 module.exports.buildEnvironment = (environment, log = false) => {
   const commonEnv = require(path.join(__dirname, '../src/environments/common.json'))

@@ -15,14 +15,8 @@ export function CounterContainer({ counterId }: Props): React.ReactElement {
   return (
     <div className='box'>
       <div className='buttons'>
-        <GoUpButton
-          disabled={on}
-          onClick={goUp}
-        />
-        <GoDownButton
-          disabled={on}
-          onClick={goDown}
-        />
+        <GoUpButton disabled={on} onClick={goUp}/>
+        <GoDownButton disabled={on} onClick={goDown}/>
       </div>
       <ResultDetail result={state} />
     </div>

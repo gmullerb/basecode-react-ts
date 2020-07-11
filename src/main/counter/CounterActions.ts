@@ -1,8 +1,8 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
-import { goDown, goUp } from './counterBrain'
-
-import { CounterState } from './CounterState'
 import { DeepReadonly } from 'deep-freeze'
+
+import { goDown, goUp } from './counterBrain'
+import { CounterState } from './CounterState'
 
 const enum CounterAction {
   UP,

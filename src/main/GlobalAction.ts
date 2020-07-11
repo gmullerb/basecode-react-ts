@@ -1,9 +1,9 @@
 // Copyright (c) 2020 Gonzalo Müller Bravo.
-import { CounterData, updateCounter } from './globalBrain'
-
 import { Action } from 'react-reducer-provider'
 import { DeepReadonly } from 'deep-freeze'
+
 import { GlobalState } from './GlobalState'
+import { CounterData, updateCounter } from './globalBrain'
 
 const enum GlobalActions {
   AUTH,
